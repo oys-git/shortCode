@@ -1,0 +1,39 @@
+from replit import clear
+#HINT: You can call clear() to clear the output in the console
+#import art
+from art import logo
+print(logo)
+#creat fn of empty bid_dict
+
+Bid_list = {}
+def bidders(name, bid):
+  
+  new_bid = {}
+  new_bid[name] = bid
+  
+  Bid_list.update(new_bid)
+  print(Bid_list)
+
+#cont adding bidders to list
+cont_bidding = True
+
+while cont_bidding:
+  #name = input("what is your name:\n")
+  #bid = int(input("How much are you bidding $:\n"))
+  more_bidders = input("more bidder; yes or no:\n").lower()
+  if more_bidders == "yes":
+    clear()
+    name = input("what is your name:\n")
+    bid = int(input("How much are you bidding $:\n"))
+    #print(Bid_list)
+      
+  elif more_bidders == "no":
+    print(f"the highes bidder is {max(Bid_list.values())}")
+    highest_bid = 0
+    for bids in Bid_list:
+      if Bid_list[bids] > highest_bid:
+        highest_bid = Bid_list[bids]
+    print(f"highest_bid: {highest_bid}")  
+    cont_bidding = False
+  #print(Bid_list)
+  bidders(name, bid)
